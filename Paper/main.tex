@@ -27,7 +27,7 @@
 
 
 
-\title{Aprendizaje de Máquina para Determinar el Incumplimiento de Pago en Tarjetas de Crédito
+\title{Aprendizaje de máquina para determinar el incumplimiento de pago en tarjetas de crédito
 }
 \author{\IEEEauthorblockN{Jose Alberto Arango Sánchez}
 \IEEEauthorblockA{\textit{Ingeniería de Sistemas} \\
@@ -45,27 +45,31 @@ leon.arango@udea.edu.co}
 \maketitle
 
 \begin{abstract}
-This document is a model and instructions for \LaTeX.
-This and the IEEEtran.cls file define the components of your paper [title, text, heads, etc.]. *CRITICAL: Do Not Use Symbols, Special Characters, Footnotes, 
-or Math in Paper Title or Abstract.
+Este estudio tiene como objetivo realizar una comparación entre modelos clásicos del \textbf{Machine learning} como: KNN, SVM, RNA, Random Forest y Naïve Bayes, usados como clasificadores para determinar el incumplimiento de pago de una tarjeta de crédito. 
+Los modelos que presentaron mejores medidas de desempeño, fueron: Random Forest y Maquina de Soporte Vectorial, seguido de la Red Neuronal Artificial. Sin embargo el modelo Naïve Bayes, tiene mejores valores en la sensibilidad, lo que indica que logra predecir mejor los incumplimientos de pago frente a los demás. Finalmente, con el objetivo de reducir la dimensionalidad se realiza un proceso de selección y extracción de características buscando optimizar los modelos con mejores resultados.
 \end{abstract}
 
+\hfill
  
 \begin{IEEEkeywords}
 Aprendizaje de máquina, modelos fenomenológicos,incumplimiento de pago, selección de características, extracción de características, machine learning
 \end{IEEEkeywords}
 
+\section{Resumen}
+Este estudio tiene como objetivo realizar una comparación entre modelos clásicos del \textbf{Machine learning} como: KNN, SVM, RNA, Random Forest y Naïve Bayes, usados como clasificadores para determinar el incumplimiento de pago de una tarjeta de crédito. 
+Los modelos que presentaron mejores medidas de desempeño, fueron: Random Forest y Maquina de Soporte Vectorial, seguido de la Red Neuronal Artificial. Sin embargo el modelo Naïve Bayes, tiene mejores valores en la sensibilidad, lo que indica que logra predecir mejor los incumplimientos de pago frente a los demás. Finalmente, con el objetivo de reducir la dimensionalidad se realiza un proceso de selección y extracción de características buscando optimizar los modelos con mejores resultados.
+
 \section{Introducción}
-El mundo moderno cada día es más sorprendente, los avances en tecnología son cada vez mejores y la dificultad de los retos que surgen crece de forma exponencial. Este documento, pretende abordar una problemática del sector bancario, que ha sido objeto de estudio durante los últimos años para múltiples investigadores; Se trata de el incumplimiento de pagos con tarjetas de crédito y para ello se utilizó un conjunto de datos que tuvo origen en Taiwan a mediados del 2005 [4]. El objetivo de este estudio es evaluar cinco algoritmos diferentes de aprendizaje automático, sacar métricas para cada uno de ellos y así poder determinar cual es mejor. Posteriormente se realizara un proceso de selección y extracción de características, con el fin de optimizar los mejores modelos y determinar cual realiza mejores predicciones, para resolver la problemática.  
+El mundo moderno cada día es más sorprendente, los avances en tecnología son cada vez mejores y la dificultad de los retos que surgen crece de forma exponencial. En este documento, pretende abordar una problemática del sector bancario, la cual ha sido objeto de estudio durante los últimos años para múltiples investigadores; se trata del incumplimiento de pagos con tarjetas de crédito y para ello se utilizó un conjunto de datos que tuvo origen en Taiwan a mediados del 2005 [4]. El objetivo de este estudio es evaluar cinco algoritmos diferentes de aprendizaje automático, sacar métricas para cada uno de ellos y así poder determinar cual de éstos es mejor. Posteriormente se realizara un proceso de selección y extracción de características, con el fin de optimizar los mejores modelos y determinar cual de éstos realiza mejores predicciones, para resolver la problemática en cuestión. 
 
 \section{Descripción del problema}
 
 \subsection{El problema - Análisis de riesgo bancario}
-Este es un problema supervisado de clasificación, su propósito es determinar si una persona incumplirá con el pago de su tarjeta de crédito en el próximo mes.
+Este es un problema supervisado de clasificación, y su propósito es determinar si una persona incumplirá con el pago de su tarjeta de crédito el próximo mes.
 
 \subsection{Variables del problema}
 
-El conjunto de datos utilizado consta de veintitrés características y una variable a predecir, las cuales se explicaran a detalle a continuación: 
+El conjunto de datos utilizado consta de veintitrés características y una variable a predecir, las cuales se definen a continuación: 
 \\
 \begin{itemize}
     \item X1: Cupo del crédito otorgado en \$ NT Dollar. 
@@ -102,13 +106,14 @@ El conjunto de datos utilizado consta de veintitrés características y una vari
 Es importante resaltar que el conjunto de datos no requiere imputación, ya que las muestras están completas. 
 
 \section{Estado del arte}
-Determinar si un cliente incumplirá en el pago de su tarjeta, es un problema de interés para el sector bancario, debido a que en este, la minimización de riesgos genera mayor esperanza de retorno del dinero. Por lo tanto es importante dar solución a este problema de una manera objetiva y precisa, aprovechando la información con la que se cuenta de los clientes. Información que han aprovechado múltiples investigadores que han abordado este problema, usando algoritmos de \textit{\textbf{Machine Learning}}, obteniendo muy buenos resultados.
+Determinar si un cliente incumplirá en el pago de su tarjeta, Representa un problema de iteres para el sector bancario, debido a que la minimización de riesgos genera mayor esperanza de retorno del dinero. Por lo tanto es importante dar solución a este problema de una manera objetiva y precisa, aprovechando la información con la que se cuenta de los clientes. Información que ha sido empleada por múltiples investigadores para abordar este problema, usando algoritmos de \textit{\textbf{Machine Learning}} y obteniendo muy buenos resultados.
+
 A continuación se presentan 4 artículos relevantes que abordan el problema mencionado anteriormente. estos emplean las misma base de datos usada en este artículo:
 \subsection{The comparisons of data mining techniques for the predictive accuracy of probability of default of credit card clients }\label{AA} 
-Este artículo  \cite{articulo1}  realiza una comparación de 6 modelos clásicos del \textit{\textbf{Machine Learning}}, para determinar el incuplimiento de pago de una tarjeta en el siguiente mes, de un cliente asociado a un banco de Taiwán. Con base en su información bancaria y personal. Además propone un método de suavizado de clasificación, para determinar la probabilidad real del incumplimiento.
+En este articulo se realiza \cite{articulo1} una comparación de 6 modelos clásicos del \textit{\textbf{Machine Learning}}, con el fin de determinar el incumplimiento del pago de una tarjeta el siguiente mes, por parte de un cliente asociado a un banco de Taiwán, con base en su información bancaria y personal. Además propone un método suavizado de clasificación, para determinar la probabilidad real del incumplimiento.
 A continuación se presentan los modelos implementados en este artículo:
-
-\subsubsection{Modelos de aprendizaje automático implementados} \hfill\\
+\hfill\\
+\subsubsection{Modelos de aprendizaje automático implementados}
 \begin{itemize}
 \item K-nearest neighbor classifiers (KNN)
 \item Logistic regression (LR)
@@ -116,12 +121,11 @@ A continuación se presentan los modelos implementados en este artículo:
 \item Naïve Bayesian classifier (NB)
 \item Artificial neural networks (ANNs)
 \item Classification trees (CTs)
-
+\hfill\\
 \end{itemize}
 \subsubsection{Metodología de validación} \hfill\\
-La metodología de validación que emplean fue bootstrapping \cite{boostrap}, pero no especifican la proporción de división del conjunto de datos.
-
-
+La metodología de validación empleada por estos investigadores fue bootstrapping \cite{boostrap}. Aunque no especifican la proporción de división del conjunto de datos.
+\hfill\\
 \subsubsection{Resultados obtenidos}\hfill\\
 En la figura 1, se presenta una tabla con los resultados obtenidos para cada modelo, en la etapa de entrenamiento y validación:
 
@@ -139,7 +143,9 @@ En este gráfico se aprecia un apartado llamado área ratio la cual esta dada po
 \[
  \text{Relación de área} = \frac{\text{ACMCR}}{\text{AMCTCR}}
 \]\newline
-Donde ACMCR es el área entre la curva del modelo y la curva de referencia y AMCTCR es área entre la mejor curva teórica y la curva de referencia, como se observa en la figura 2. Esta medida, es un criterio importante para la selección del mejor modelo, dado que un mayor valor representa una mayor similitud entre el modelo planteado y el teórico.
+Donde ACMCR es el área entre la curva del modelo y la curva de referencia y AMCTCR es área entre la mejor curva teórica y la curva de referencia, como se observa en la figura 2.
+
+Esta medida, es un criterio importante para la selección del mejor modelo, dado que un mayor valor representa una mayor similitud entre el modelo planteado y el teórico.
 \begin{center}
     \begin{figure}[H]
         \hfill
@@ -149,20 +155,21 @@ Donde ACMCR es el área entre la curva del modelo y la curva de referencia y AMC
     \end{figure}  
 \end{center}
 
-Finalmente de la figura 1 se concluye que:
+Finalmente de la figura 1 y 2 se concluye que:
 \begin{itemize}
 \item El método KNN tiene un mejor desempeño en la fase de entrenamiento ya que cuenta con la tasa de error más baja y la relación de área más alta en esta misma fase. 
-\item La red neuronal tiene mejor desempeño en la fase de validación, dado que su relación de área es la más alta entre todos los modelos y su tasa de error es relativamente baja (0.17).
+\item La red neuronal tiene mejor desempeño en la fase de validación, dado que su relación de área es la más alta entre todos los modelos, y su tasa de error es relativamente baja (0.17).
 \end{itemize}
-Este articulo finaliza con la recomendación de implementar redes neuronales artificiales, para calificar a los clientes.
+Finalmente los autores de este articulo recomiendan implementar redes neuronales artificiales, para calificar a los clientes.
 
 \subsection{An experimental comparison of classification algorithms for imbalanced credit scoring data sets}
 
-Este artículo  \cite{articulo2} compara varias técnicas de \textbf{Machine learning}  de clasificación, para conjuntos de datos desequilibrados,  empleados en la calificación crediticia, o conocido común mente como \textbf{Scoring}.
-Además de utilizar técnicas de clasificación tradicionales, como la regresión logística, las redes neuronales y los árboles de decisión, este artículo explora: El \textbf{gradient boosting}, máquina de vector de soporte de mínimos cuadrados y random forests para la predicción del incumplimiento de pago.
-Los criterios de rendimiento elegidos en este artículo para medir el efecto del desbalanceo en los diferentes modelos son: el área bajo la curva (AUC); La estadística de Friedman y las pruebas post hoc de Nemenyi.
+En este articulo se \cite{articulo2} compara varias técnicas de clasificación del \textbf{Machine learning}, para conjuntos de datos desequilibrados,  empleados en la calificación crediticia conocido comúnmente como \textbf{Scoring}.
+Además de utilizar técnicas de clasificación tradicionales, como la regresión logística, las redes neuronales y los árboles de decisión, este artículo explora el \textbf{gradient boosting}, máquina de vector de soporte de mínimos cuadrados y random forests para la predicción del incumplimiento de pago.
+
+Los criterios de rendimiento elegidos en este artículo para medir el efecto del desbalanceo en los diferentes modelos son: el área bajo la curva (AUC), la estadística de Friedman y las pruebas post hoc de Nemenyi.
 A continuación se presentan los modelos implementados en este artículo:
-\subsubsection{Modelos de aprendizaje automático implementados} \hfill\\
+\subsubsection{Modelos de aprendizaje automático implementados}
 \begin{itemize}
 \item Logistic regression
 \item Linear and quadratic discriminant analysis
@@ -173,12 +180,12 @@ A continuación se presentan los modelos implementados en este artículo:
 \item Random forests
 \item Gradient boosting
 \end{itemize}
-
+\hfill\\
 \subsubsection{Metodología de validación}\hfill\\
 La metodología de validación empleada fue Bootstrapping, con una proporción de 
-$\frac{2}{3}$ del \textit{dataset} para el entrenamiento y $\frac{1}{3}$ para las pruebas.
-\subsubsection{Resultados obtenidos} \hfill\\
-Este artículo obtuvo los siguiente resultados:
+$\frac{2}{3}$ del \textit{dataset} para el entrenamiento y $\frac{1}{3}$ para las pruebas. 
+\hfill\\
+\subsubsection{Resultados obtenidos}
 \begin{itemize}
 \item Random forests y gradiente boosting fueron los de mejor resultado debido a que tiene un AUC mayor.
 \item Decision tree,  quadratic discriminant analysis y KNN obtienen los peores resultados.
@@ -187,7 +194,7 @@ Este artículo obtuvo los siguiente resultados:
 \end{itemize}
 \subsection{Application of machine learning algorithms in credit card default payment prediction}
 
-En este trabajo se realiza una comparación en ocho modelos diferentes, de los cuales sacan la precisión, sensibilidad y especificidad como métricas para evaluar el rendimiento. Además con base en estos resultados saca el mejor modelo. \\
+En este trabajo se realiza una comparación de ocho modelos diferentes de los cuales sacan la precisión, sensibilidad y especificidad como métricas para evaluar el rendimiento. Además con base en estos resultados  obtener el mejor modelo. \\
 
 \subsubsection{Modelos de aprendizaje automático implementados}
 \begin{itemize}
@@ -222,10 +229,7 @@ Según el estudio de  Husejinovic, Keco y Masetić [6], se determinó que el mej
 
 \subsection{Credit default mining using combined machine learning and heuristic approach}
 
-Una investigación realizada por Islam, Eberle y Ghafoor [7], busca mirar la solución al problema desde dos enfoques (Heurístico y Aprendizaje de Máquina) y llegan a la conclusión de que el Aprendizaje de máquina es mejor por aproximadamente 2\% de exactitud. Para determinar esto, utilizan cinco modelos diferentes. 
-\\
-
-\subsubsection{Modelos de aprendizaje automático implementados}
+La investigación realizada por Islam, Eberle y Ghafoor [7], buscaba encontrar la solución al problema desde dos enfoques diferentes: uno heurístico y a través del aprendizaje de Máquina. Los investigadores concluyen que el aprendizaje de máquina es mejor por aproximadamente 2\% de exactitud. Para determinar esto, utilizan cinco modelos diferentes: 
 \begin{itemize}
 \item Random Forest
 \item Naïve Bayes
@@ -234,23 +238,22 @@ Una investigación realizada por Islam, Eberle y Ghafoor [7], busca mirar la sol
 \item Extremly Randomized Trees
 \end{itemize}
 \hfill
-
 \subsubsection{Metodología de validación}\hfill\\
 La metodología de validación utilizada fue validación cruzada con diez k-fold
-
+\hfill\\
 \subsubsection{Resultados obtenidos}\hfill\\
 Según los investigadores, los mejores modelos para tratar este problema son árboles extremadamente aleatorios con una eficiencia de 0.958 y árboles aleatorios con 0.944 Figura ~\ref{fig:Accuracy_3}\\ 
 
 \begin{center}
-    \begin{figure}[h]
+    \begin{figure}[H]
         \hfill
             \includegraphics[width=8cm]{Accuracy_3.png}\hspace*{\fill}
     \caption{Eficiencia de los modelos}
     \label{fig:Accuracy_3}
-    \end{figure}
+    \end{figure}  
 \end{center}
 
- Los resultados obtenidos por estos investigadores son buenos, pero no es posible saber cómo llegaron a ellos, ya que el objetivo de su investigación era determinar si el enfoque heurístico es mejor que el de aprendizaje automático y he hicieron poco énfasis en los procedimientos.
+ Los resultados obtenidos por estos investigadores son buenos, pero no es posible saber cómo llegaron a ellos, ya que hicieron poco énfasis en los procedimientos.
 
 \section{Experimentos}
   Para los siguientes experimentos se empleó la base de datos: \textit{default of credit card clients Data Set} \cite{bd}. Esta base de datos cuenta con la información crediticia de 30.000 clientes, descrita por  23 características (ver sección 2B). Es importante especificar que la base de datos no contiene datos faltantes.
@@ -293,7 +296,7 @@ Finalmente para atacar el problema de desbalanceo de clases, se empleo validaci�
 A continuación se presentaran los resultados obtenidos en 5 modelos diferentes:
 
 \subsection{Naïve Bayes}
-Para este modelo, se utilizó los parámetros por defecto incluidos en la librería sklearn \cite{sklearnGaussian}, obteniendo un \textit{Acurracy} del 67\%. Otras medidas de desempeño utilizadas fueron: sensibilidad, especificidad, eficiencia y precisión, las cuales se obtuvieron a partir de la figura ~\ref{fig:confusionMatrizGNB} o bien llamada matriz de confusión y se aprecian en la tabla  ~\ref{tab:medidasGNB}
+En este modelo, se utilizaron los parámetros por defecto, incluidos en la librería sklearn \cite{sklearnGaussian}. Obteniendo un \textit{Acurracy} del 67\%. Otras medidas de desempeño utilizadas fueron: sensibilidad, especificidad, eficiencia y precisión las cuales se obtuvieron a partir de la figura ~\ref{fig:confusionMatrizGNB} o bien llamada matriz de confusión y se aprecian en la tabla  ~\ref{tab:medidasGNB}
 \begin{center}
     \begin{figure}[H]
         \hfill
@@ -378,7 +381,7 @@ Finalmente se concluye que este modelo:
 \item Los errores son similares , sin embargo se tiene mayor error en la fase de validación que en entrenamiento, como es de esperar según la teoría.
 \item Según la sensibilidad solo el 34\% de las muestras de la clase 1 (personas que incumplirá en el pago de su tarjeta en el siguiente mes), están siendo correctamente clasificadas.
 \item El modelo esta clasificando el 94\% de las muestras de la clase 0 (persona que no incumplirá en el pago de su tarjeta en el siguiente mes), correctamente.
-\item Dado los valores de sensibilidad y especificidad, el modelo clasifica muy bien muestras de la clase 0 (la clase mayoritaria), caso contrario las muestras clase 1 (clase minoritaria). Por lo tanto se debe implementar otra manera de abordar el desabalanceo de clases al momento de entrenar este modelo.
+\item Dado los valores de sensibilidad y especificidad, el modelo clasifica bien muestras de la clase 0 (la clase mayoritaria), caso contrario las muestras clase 1 (clase minoritaria). Por lo tanto se debe implementar otra manera de abordar el desabalanceo de clases al momento de entrenar este modelo.
 \item El área bajo la curva de este modelo es muy regular, incluso mas baja que el modelo Naïve Bayes por lo tanto, el modelo  tiene capacidad de separación de clases pero no es muy bueno.
 \end{itemize}
 \subsection{Redes Neuronales Artificiales (RNA)}
@@ -418,7 +421,7 @@ Como se han venido presentado los resultados en modelos previos, la figura ~\ref
     \label{fig:rocRNA}
     \end{figure}  
 \end{center}
-El resultado de las medidas de desempeño, expresado en la tabla ~\ref{tab:medidasRNA} fue
+El resultado de las medidas de desempeño, expresado en la tabla ~\ref{tab:medidasRNA} fue:
 \newline
 \begin{table}[H]
 \centering
@@ -430,16 +433,15 @@ Sensibilidad & Especificidad & \multicolumn{1}{r|}{Eficiencia} & Precisión \\ \
 \caption{Medidas de desempeño del modelo de Redes Neuronales Artificiales}
 \label{tab:medidasRNA}
 \end{table}
-Finalmente se concluye que este modelo:
+Finalmente se concluye que en este modelo:
 \begin{itemize}
 \item El 82\% de las muestras fueron clasificadas correctamente, lo cual es un resultado muy bueno en comparación con los otros modelos.
 \item Al igual que el modelo KNN, este modelo no presenta sobreajuste. 
-\item No se presenta subajuste, ya que para cumplir dicha condición, el error durante el entrenamiento y validación, debe ser elevado y similar para ambos casos, condición que no cumple este modelo.
+\item No se presenta subajuste, ya que para cumplir dicha condición el error durante el entrenamiento y validación debe ser elevado y similar para ambos casos; condición que no cumple este modelo.
 \item Este modelo presenta las misma falencias que el modelo KNN, respecto a la clasificación de muestras de la clase 1,sin embargo es un 4\% mejor que este.
-\item 68\% de precisión indica que hay una mediana proximidad entre los valores obtenidos, en mediciones repetidas.
+\item 68\% de precisión indica que hay una mediana proximidad entre los valores obtenidos en mediciones repetidas.
 \item El área bajo la curva de este modelo es mejor, que la de los modelo Naïve Bayes y KNN. Llegando casi al 0.8 valor levemente cercado a 1, que es el valor ideal. Por lo tanto, el modelo  tiene una mayor capacidad de separación de clases respecto a los otros.
 \end{itemize}
-
 \subsection{Random Forest}
 En este modelo se realizaron las siguiente combinaciones de parámetros que se pueden apreciar en la tabla~\ref{tab:parametrosRDF}
 \hfill
@@ -452,14 +454,14 @@ Parametro    & Valores              \\ \hline
 max\_features & 10,20,30,40,50       \\ \hline
 max\_features & 1,2,3,4,5            \\ \hline
 max\_depth    & 1,2,3,4,5,8,10,15,20 \\ \hline
-criterion    & 'gini', 'entropy'    \\ \hline
+criterion    & gini, entropy    \\ \hline
 \end{tabular}
 \caption{Combinación de parámetros para el modelo Random Forest}
 \label{tab:parametrosRDF}
 \end{table}
 La mejor combinación de parámetros encontrada fue: criterion: entropy, max\_depth: 8, max\_features: 5 y n\_estimators: 50, la cual obtuvo un \textbf{Acurracy} del 83\%
 
-Durante la fase de entrenamiento se logró una eficiencia de 0.9514 con un intervalo de confianza de +/- 0.0012. Mientras que en la fase de validación, una eficiencia de 0.8263  con un intervalo de confianza de +/- 0.0051. Siendo estos unos resultados bueno en comparación con el modelo Naïve Bayes y el KNN.
+Durante la fase de entrenamiento se logró una eficiencia de 0.9514 con un intervalo de confianza de +/- 0.0012. Mientras que en la fase de validación, una eficiencia de 0.8263  con un intervalo de confianza de +/- 0.0051. Siendo estos unos resultados buenos en comparación a los del modelo Naïve Bayes y el KNN.
 Como se han venido presentado los resultados en modelos previos, la figura ~\ref{fig:matrixRDF}  y figura ~\ref{fig:rocRDF} corresponden a la matriz de confusión y la curva ROC respectivamente, para este modelo.
 
 \begin{center}
@@ -492,14 +494,14 @@ Sensibilidad & Especificidad & \multicolumn{1}{r|}{Eficiencia} & Precisión \\ \
 \caption{Medidas de desempeño del modelo Random Forest}
 \label{tab:medidasRDF}
 \end{table}
-Finalmente se concluye que este modelo:
+Finalmente se concluye que en este modelo:
 \begin{itemize}
-\item El 83\% de las muestras fueron clasificadas correctamente, lo cual es un resultado muy bueno en comparación con los otros modelos.
+\item El 83\% de las muestras fueron clasificadas correctamente, lo cual es un resultado bueno en comparación a los otros modelos.
 \item Al igual que el modelo KNN, este modelo no presenta sobreajuste, sin embargo dada la alta eficiencia (95\%) durante el entrenamiento se puede observar indicios de memorización de muestras.
 \item Este modelo presenta las misma falencias que el modelo KNN y la RNA, respecto a la clasificación de muestras de la clase 1.
-\item 69\% de precisión indica que hay una mediana proximidad entre los valores obtenidos, en mediciones repetidas, lo cual es un aumento leve respecto a la red neuronal artificial.
+\item 69\% de precisión indica que hay una mediana proximidad entre los valores obtenidos en mediciones repetidas, lo cual es un aumento leve respecto a la red neuronal artificial.
 \item El área bajo la curva de este modelo es mejor que el modelo KNN, pero menor que la RNA, cercano a 1 que es el valor de referencia. Por lo tanto, el modelo  tiene una buena capacidad de separación.
-\item El costo computacional de este modelo es mucho menor que el empleado por la RNA, obteniendo resultados muy similares.
+\item El costo computacional de este modelo es mucho menor que el empleado por la RNA, además obtiene resultados muy similares.
 \end{itemize}
 
 \subsection{Maquinas de Soporte Vectorial}\hfill
@@ -514,12 +516,12 @@ gamma    & 0.001, 0.01, 0.1, 1  \\
 alpha    &  0.1  , 0.01 , 0.001  \\ 
 kernel    & rbf,linear   \\ \hline
 \end{tabular}\hfill
-\end{table} \hfill\\
 \caption{Combinación de parámetros para la Maquinas de Soporte Vectorial}
 \label{tab:parametrosSVM}\hfill\\
+\end{table} 
 La mejor combinación de parámetros encontrada fue: Maquina de soporte vectorial con C = 1, gamma = 0.1 y kernel rbf, obteniendo un \textbf{Acurracy} del 83\%.
 Durante la fase de entrenamiento se logró una eficiencia de 0.8205 con un intervalo de confianza de +/- 0.000800. Mientras que en la fase de validación, una eficiencia de 0.832  con un intervalo de confianza de +/-  0.00479. Siendo estos unos buenos resultados.
-Como se han venido presentado los resultados en modelos previos, la figura ~\ref{fig:matrixSVM}  y figura ~\ref{fig:rocSVM} representan la matriz de confusión y la curva ROC respectivamente, para este modelo.
+Como se han venido presentado los resultados en modelos previos, la figura ~\ref{fig:matrixSVM}  y figura ~\ref{fig:rocSVM} representan la matriz de confusión y la curva ROC respectivamente para este modelo.
 \begin{center}
     \begin{figure}[H]
         \hfill
@@ -553,15 +555,15 @@ Sensibilidad & Especificidad & \multicolumn{1}{r|}{Eficiencia} & Precisión \\ \
 Finalmente se concluye que este modelo:
 \begin{itemize}
 \item Tiene la mayor área bajo la curva (0.81) de todos los modelos mencionados anteriormente. Por lo tanto, tiene una mayor capacidad de separación entre clases.
-\item Tiene las mejores medidas de desempeño expresadas en la tabla ~\ref{tab:medidasRNA} de todos los modelos vistos.
-\item Es igual de bueno que el Random Forest, para clasificar muestras correctamente, con una certeza el 83\%
+\item Tiene las mejores medidas desempeño, en comparación a los modelos anteriormente vistos. estas medidas se expresan en la tabla ~\ref{tab:medidasRNA}.
+\item Es igual de bueno que el Random Forest para clasificar muestras correctamente, con una certeza del 83\%
 \item Presenta las misma dificultades que el KNN, Random Forest Y RNA para la clasificación de muestra de la clase 1.
 \end{itemize}
 
 \section{Análisis de características}
-Trabajar con las 23 características al tiempo, implica un costo computacional elevado. No obstante puede presentarse que algunas características no aporte mucha información a los modelos, siendo redundantes.  También es importante cumplir el principio de parsimonia, el cual consiste en que el modelo mas simple, será siempre el escogido como solución. Por estas y muchas razones mas es importante considerar la reducción de dimensionalidad, es decir trabajar con menos variables.
+Trabajar con las 23 características al tiempo, implica un costo computacional elevado. No obstante puede presentarse que algunas características no aporte mucha información a los modelos, siendo redundantes.  También es importante cumplir el principio de parsimonia, el cual consiste en que el modelo mas simple, será siempre el escogido como solución. Por lo tanto es importante considerar la reducción de dimensionalidad, es decir, trabajar con menos variables.
 
-Para lograr este fin, se plantearon dos formas: Realizando selección y extracción de características. Sin embargo, para poder emplear estas estrategias se debe realizar una primera estimación de la cantidad de variables a eliminar, para el caso de selección  y una cantidad de componentes a seleccionar, para el caso de extracción. Dicha estimación se puede obtener de una manera experimental, mediante el análisis individual de cada una de las características, a partir de medidas de correlación y del índice de Fisher.
+Para lograr este fin, se plantearon dos métodos: Realizando selección y extracción de características. Sin embargo, para poder emplear estas estrategias se debe realizar una primera estimación de la cantidad de variables a eliminar, para el caso de selección; y una cantidad de componentes a seleccionar, para el caso de extracción. Dicha estimación se puede obtener de una manera experimental, mediante el análisis individual de cada una de las características, a partir de medidas de correlación y del índice de Fisher.
 
 Empleando la matriz de correlación de la figura ~\ref{fig:matrizCorrelation} y solo analizando la correlación entre variables, ya que las relaciones con la variable a predecir, no tiene ninguna interpretación valida en problemas de clasificación. Se puede determinar las características candidatas a ser eliminadas.
 \begin{center}
@@ -572,7 +574,7 @@ Empleando la matriz de correlación de la figura ~\ref{fig:matrizCorrelation} y 
     \label{fig:matrizCorrelation}
     \end{figure}  
 \end{center}
-Mayor intensidad de color rojo, entre las parejas de variables a evaluar, implica una correlación fuerte entre ellas. De la figura ~\ref{fig:matrizCorrelation} se logra apreciar que dicha condición es cumplida por las variables: BILL\_AMT1, BILL\_AMT2, BILL\_AMT3, BILL\_AMT4, BILL\_AMT5, BILL\_AMT5, en mayor proporción y en menor medida por las variables: PAY\_1, PAY\_2, PAY\_3, PAY\_4, PAY\_5, PAY\_6, ya que estas presentan una menor intensidad. Por lo tanto las 12 variables mencionadas anteriormente, son las cándidas a ser eliminadas.
+Mayor intensidad de color rojo, entre las parejas de variables a evaluar, implica una correlación fuerte entre ellas. De la figura ~\ref{fig:matrizCorrelation} se logra apreciar que dicha condición es cumplida por las variables: BILL\_AMT1, BILL\_AMT2, BILL\_AMT3, BILL\_AMT4, BILL\_AMT5, BILL\_AMT5, en mayor proporción y en menor medida por las variables: PAY\_1, PAY\_2, PAY\_3, PAY\_4, PAY\_5, PAY\_6, ya que estas presentan una menor intensidad. Por lo tanto las 12 variables mencionadas anteriormente son las cándidas a ser eliminadas.
 
 Empleando el índice discriminante de \textbf{Fisher} se obtiene los siguientes resultados:
 \begin{center}
@@ -588,8 +590,7 @@ En la gráfica ~\ref{fig:indexFisher}, se encuentran los índices de Fisher norm
 Finalmente, por la matriz de correlación existen 12 variables candidatas a eliminar y por el índice de Fisher 20. Es importante aclarar que una de la suposición del índice de Fisher, es que las variables de entrada son independientes entre ellas.
 
 \section{Selección de características}
-Para emplear la selección de características, se debe definir como parámetro el numero de características a seleccionar. Dicho valor se obtuvo con base en la cantidad de variables a eliminar, arrojada por la matriz de correlación. Se empleo una función tipo \textbf{Wrapper}, con los tres mejores modelos obtenidos en la sección de experimentos, iterando de 10 a 20 variables de dos en dos y usando selección secuencial hacia adelante y hacia atrás.
-
+Para emplear la selección de características, se debe definir como parámetro el numero de características a seleccionar. Dicho valor se obtuvo con base en la cantidad de variables a eliminar, arrojada por la matriz de correlación. Se empleó una función tipo \textbf{Wrapper}, con los tres mejores modelos obtenidos en la sección de experimentos, iterando de 10 a 20 variables de dos en dos y usando selección secuencial hacia adelante y hacia atrás.
 A continuación se presentan los resultados alcanzados por cada modelo:
 \subsection{Random Forest Classifier}\hfill
 \begin{table}[h]
@@ -610,9 +611,8 @@ N & Forward & Error V & IC (std) & Eficiencia V \\ \hline
 20 & FALSE & 0.1605 & 0.00091 & 83.97\% \\ \hline
 \end{tabular}
 \end{table}\hfill
-
-
-
+\newline
+\newline
 El mejor resultado obtenidos, dada su eficiencia en la fase de validación es:
 \begin{itemize}
 \item Random Forest con 20 características, en el siguiente orden de importancia:
@@ -716,8 +716,8 @@ N & Forward & Error V & IC (std) & Eficiencia V \\ \hline
 \hline
 \multicolumn{5}{c}{\textbf{RNA Classifier}} \\ \hline
 N & Forward & Error V & IC (std) & Eficiencia V \\ \hline
-2 & TRUE &  &   & \% \\
-3 & TRUE &  &   & \% \\
+2 & TRUE & 0.1800  & 0.0005  & 81.973\% \\
+3 & TRUE & 0.1793 &  0.0006 & 81.982\% \\
 2 & FALSE & &  & \% \\
 3 & FALSE &  & & \% \\ \hline
 \end{tabular}
@@ -731,15 +731,15 @@ N & Forward & Error V & IC (std) & Eficiencia V \\ \hline
 \hline
 \multicolumn{5}{c}{\textbf{SVM Classifier}} \\ \hline
 N & Forward & Error V & IC (std) & Eficiencia V \\ \hline
-2 & TRUE &  &   & \% \\
-3 & TRUE &  &   & \% \\
-2 & FALSE & &  & \% \\
-3 & FALSE &  & & \% \\ \hline
+2 & TRUE &  0.1789  & 0.0009  &82.25 \% \\
+3 & TRUE &  0.1783 & 0.00089  & 82.32\% \\
+2 & FALSE & 0.1790 & 0.0010 & 82.255 \% \\
+3 & FALSE & 0.1783 & 0.0008 & 82.32\% \\ \hline
 \end{tabular}
 \end{table}
 
 \section{Extracción de características}
-La extracción de características es otro método para la reducción de la dimensionalidad. Este tiene como meta, conservar la mayor cantidad de información posible; realizando transformaciones de los datos originales a un nuevo conjunto de variables. Para este caso se empleo el análisis de componente principal (PCA), el cual parte del supuesto de que mayor variación implica más información.
+La extracción de características es otro método para la reducción de la dimensionalidad. Este tiene como  objetivo. Conservar la mayor cantidad de información posible; realizando transformaciones de los datos originales a un nuevo conjunto de variables. Para este caso se empleo el análisis de componente principal (PCA), el cual parte del supuesto de que mayor variación implica más información.
 
 A continuación se presentan los resultados registrados por este método, empleando como número de componentes, la cantidad de características usadas en la sección de selección.
 
@@ -757,7 +757,8 @@ N & Error V & IC (std) & Eficiencia V \\ \hline
 20 & 0.1860 & 0.00901 & 81.39\% \\\hline
 \end{tabular}
 \end{table}
-
+\newline
+\newline
 Si bien el mejor resultado es el obtenido con un total de 20 componentes, utilizar solo 15 componentes logra aproximarse mucho a este valor, teniendo un costo computacionalmente mejor.
 \subsection{RNA Classifier}\hfill
 
@@ -773,7 +774,8 @@ N & Error V & IC (std) & Eficiencia V \\ \hline
 18 & 0.1807 & 0.01070 & 81.92\% \\
 20 & 0.1813 & 0.01110 & 81.86\% \\\hline
 \end{tabular}
-\end{table}
+\end{table}\hfill
+\newline
 En este caso un total de 18 componentes logra un mejor resultado, lo cual se sale de la tendencia impuesta por el total de 20 componentes, que en la mayoría de los casos alcanza un mejor resultado.
 \subsection{SVM Classifier}\hfill
 
@@ -789,38 +791,40 @@ N & Error V & IC (std) & Eficiencia V \\ \hline
 18 & 0.1813 & 0.01014 & 81.86\% \\
 20 & 0.1813 & 0.00956 & 81.86\% \\\hline
 \end{tabular}
-\end{table}
-Se logra un empate de rendimiento, cuando se emplean 18 y 20 componentes, sin embargo las 18 componentes tienen un costo menor computacionalmente.
+\end{table}\hfill
+\newline
+Se logra un empate de rendimiento, cuando se emplean 18 y 20 componentes, sin embargo las 18 componentes tiene un costo menor computacionalmente.
 
 
 \section{Comparación de resultados con el estado del arte}
 \begin{itemize}
-\item Respecto al artículo\cite{articulo1}, se lograron resultados muy similares, excepto por el modelo de Naïve Bayes, el cual tiene 12\% de diferencia con el resultado del articulo. El modelo KNN y la red neuronal artificial, solo tienen un 1\% de diferencia y respecto al maquina de soporte vectorial no se puede concluir nada, ya que no es un modelo de interés del articulo. 
+\item Respecto al artículo\cite{articulo1}, se lograron resultados muy similares, excepto por el modelo de Naïve Bayes, el cual tiene 12\% de diferencia con el resultado del articulo. El modelo KNN y la red neuronal artificial, solo tienen un 1\% de diferencia y respecto al maquina de soporte vectorial no se puede llegar a ninguna conclusión concreta, ya que no es un modelo de interés del articulo. 
 
-\item Según el artículo \cite{articulo2}, el Random forests funciona sorprendentemente bien dado un gran desequilibrio de clases, sin embargo esta afirmación no se logro constatar, debido que este modelo es igual de malo como los otros, al momento de clasificar la clase minoritaria. Las razones que puede influir en este resultado pudieron haber sido: la metodología de validación usada en el articulo, la cual es diferente a la empleada en la sección de experimentos y la no utilización de técnicas de submuestreo. Sin embargo la eficiencia de este modelo es la mas alta junto con la SVM, lo cual es una conclusión a la que llega el articulo.
+\item Según el artículo \cite{articulo2}, el Random forests funciona bien dado un gran desequilibrio de clases. Sin embargo esta afirmación no se logro constatar, debido que este modelo es igual de ineficiente a los otros, al momento de clasificar la clase minoritaria. Los motivos que pudieron incidir en estos resultados son: la metodología de validación usada en el articulo, la cual es diferente a la empleada en la sección de experimentos y la no utilización de técnicas de submuestreo. Sin embargo la eficiencia de este modelo es la mas alta junto con la SVM, lo cual es una conclusión a la que llega el articulo.
 
-\item El articulo \cite{articulo3} emplea la misma cantidad de \textbf{folds} en su metodología de validación. Las métricas de desempeño logradas por el método de Naïve Bayes, son muy similares a las obtenidas en ese artículo, la eficiencia tiene una diferencia de un 0.01, mientras que la precisión de un 0.07. Respecto al modelo KNN, se tiene un comportamiento similar en el cual la precisión y eficiencia tiene diferencias menores al 0.1, mientras que para la sensibilidad se presenta una diferencia de 0.02. Finalmente para el modelo de Random forest, no se logran tan buenos resultados como los mencionados en el artículo, en el cual alcanzan un  \textbf{Acurracy} del 94\%, valor que es muy extraño dado que es el único articulo del estado del arte que logra tal hazaña.
+\item El articulo \cite{articulo3} emplea la misma cantidad de \textbf{Folds} en su metodología de validación. Las métricas de desempeño logradas por el método de Naïve Bayes, son muy similares a las obtenidas en ese artículo, la eficiencia tiene una diferencia de un 0.01, mientras que la precisión de un 0.07. Respecto al modelo KNN, se tiene un comportamiento similar en el cual la precisión y eficiencia tiene diferencias menores al 0.1, mientras que para la sensibilidad se presenta una diferencia de 0.02. Finalmente para el modelo de Random forest, no se logran tan buenos resultados como los mencionados en el artículo, en el cual alcanzan un  \textbf{Acurracy} del 94\%.
 
 \item Finalmente el articulo  \cite{articulo4} tiene métricas de desempeño, muy similares a los resultados generados por los modelos: KNN, Naïve Bayes, Random forest y SVM. Siendo este ultimo modelo de gran interés, ya que es el único articulo del estado del arte que lo implementa. La diferencia entre el \textbf{Acurracy} obtenido en el articulo y el de la sección de experimentos, es de un 0.011.
 
 \end{itemize}
 
 \section{Conclusiones}
+
+El objetivo de este estudio fue determinar cuál de los modelos tenía un mejor comportamiento al momento de predecir el incumplimiento de pagos en tarjetas de crédito para el mes siguiente. Después de los experimentos, se pudo notar que los modelos de mayor eficiencia fueron: Random Forest con 0.83 y Maquina de Soporte Vectorial con 0.83;  seguido de la Red Neuronal Artificial con 0.82. Por otro lado, al comparar la sensibilidad y la especificidad en los modelos, se pudo observar grandes similitudes en estas, ya que en casi todos los modelos la sensibilidad estaba alrededor de 0.34, mientras que la especificidad en un 0.95. Sin embargo, lo anterior no aplica para el modelo Naïve Bayes, por que este tiene mejores valores en la sensibilidad,  lo que indica que este logra predecir mejor los incumplimientos de pago frente a los demás.
+
+Después de analizar los experimentos se realizo el proceso de selección y extracción de características, con el cual se buscaba optimizar los modelos que dieron mejores resultados. De estos dos procesos, el que logro mejores resultados fue la selección de características, aumentando la eficiencia de los modelos en casi dos por ciento, como se muestra a continuación: 
+
 \begin{itemize}
-\item 
-\item
-\item
-\item
-\item
-\item
-\item
-\item
+\item Random Forest con una eficiencia del 83.97\%  empleando un total de veinte características.
+\item Red Neuronal Artificial con una eficiencia del 82.45\% usando un total de veinte características.
+\item Maquina de Soporte Vectorial con una eficiencia del 83.40\% manejando un total de veinte características.
 \end{itemize}
 
+Si se comparan estos valores con los obtenidos por otros investigadores, podemos notar que si hubo una mejora de casi un dos por ciento en algunos modelos, lo cual es una cifra buena en cuanto a riesgo financiero se refiere.
 
+Por otro lado, es importante resaltar que este estudio aplica para el comportamiento de las personas en Taiwan, debido a la procedencia del conjunto de datos.
 
-
-
+Además seria un practica interesante, realizar mas estudios en el tema, considerando otros lugares y un rango de fechas mas amplio, ya que en este caso el conjunto de datos solo posee información entre abril y septiembre de 2005.
 \begin{thebibliography}{1}
   
 \bibitem{articulo1} 
@@ -848,6 +852,4 @@ Islam, S.R., Eberle, W., \& Ghafoor, S.K. (2018). Credit Default Mining Using Co
 
 
 \end{thebibliography}
-
-
 \end{document}
